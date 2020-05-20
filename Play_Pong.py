@@ -6,11 +6,32 @@ from turtle import *
 from random import *
 from time import sleep
 
+
 window = Screen()
 window.title("Throwback PONG")
 window.bgcolor("black")
 window.setup(width=800, height=600)
 window.tracer(0)
+
+# Pregame instructions
+
+manual = Turtle()
+manual.speed(0)
+manual.color("red")
+manual.penup()
+manual.hideturtle()
+manual.goto(0, 300)
+while True:
+    manual.write("Don't Underestimate The Ball", align="center", font=("Courier", 24, "bold"))
+    sleep(.1)
+    manual.sety(manual.ycor() - 15)
+    manual.clear()
+    if manual.ycor() == 0:
+        manual.write("Don't Underestimate The Ball", align="center", font=("Courier", 24, "bold"))
+        sleep(3)
+        manual.clear()
+        break
+
 
 # Creating Players and Ball
 
@@ -78,17 +99,17 @@ ball.goto(0, 0)
 
 dir_ = randint(1, 12)
 if dir_ <= 3:
-    ball.dx = .5
-    ball.dy = .5
+    ball.dx = .2
+    ball.dy = .2
 if 3 < dir_ < 7:
-    ball.dx = -.5
-    ball.dy = .5
+    ball.dx = -.2
+    ball.dy = .2
 if 6 < dir_ < 10:
-    ball.dx = .5
-    ball.dy = -.5
+    ball.dx = .2
+    ball.dy = -.2
 if dir_ >= 10:
-    ball.dx = -.5
-    ball.dy = -.5
+    ball.dx = -.2
+    ball.dy = -.2
 
 # Creating the scoreboard
 score_board = Turtle()
@@ -109,12 +130,7 @@ cont.penup()
 cont.hideturtle()
 cont.goto(0, 0)
 
-
-def continue_():
-    return "a"
-
-
-this = window.onkeypress(continue_(), "b")
+sleep(2)
 
 # Main Game Loop
 while player1_score != 10 or player2_score != 10:
