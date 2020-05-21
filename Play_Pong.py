@@ -158,6 +158,20 @@ while player1_score != 10 or player2_score != 10:
 
         score_board.clear()
         score_board.write(f"Player 1: {player1_score}  Player 2: {player2_score}", align="center", font=("Courier", 24, "bold"))
+        if player1_score == 10 or 10 == player2_score:
+            score_board.clear()
+            player1.goto(0, 500)
+            player2.goto(0, 500)
+            ball.goto(0, 500)
+            window.update()
+            score_board.goto(0, 0)
+            score_board.color("green")
+            if player1_score == 10:
+                score_board.write(f"Player 1 is the WINNER", align="center", font=("Courier", 40, "bold"))
+            else:
+                score_board.write(f"Player 2 is the WINNER", align="center", font=("Courier", 40, "bold"))
+            sleep(5)
+            break
 
         cont.write("CONTINUING IN: 3", align="center", font=("Courier", 24, "bold"))
         sleep(1)
