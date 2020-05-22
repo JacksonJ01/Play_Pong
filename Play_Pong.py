@@ -132,14 +132,13 @@ cont.goto(0, 0)
 
 sleep(2)
 
-totally_not_lazy_mode = True
+totally_not_lazy_mode = False
 
 # Main Game Loop
 while player1_score != 10 or player2_score != 10:
     window.update()
 
     if totally_not_lazy_mode:
-        player1.sety(ball.ycor())
         player2.sety(ball.ycor())
 
     # Ball Movement
